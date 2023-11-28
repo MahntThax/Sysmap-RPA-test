@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Sysmap_udemy_test
 {
-    public partial class Form1 : Form
+    public partial class KeywordSearchForm : Form
     {
-        public Form1()
+        public KeywordSearchForm()
         {
             InitializeComponent();
         }

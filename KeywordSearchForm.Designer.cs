@@ -1,6 +1,6 @@
 ﻿namespace Sysmap_udemy_test
 {
-    partial class Form1
+    partial class KeywordSearchForm
     {
         /// <summary>
         /// Required designer variable.
