@@ -32,5 +32,17 @@ namespace Sysmap_udemy_test.Utilities
                 return null;
             }
         }
+
+        public static IWebElement ReturnElement(IWebElement webElement, By elementSearchBy)
+        {
+            try
+            {
+                return webElement.FindElement(elementSearchBy);
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }
