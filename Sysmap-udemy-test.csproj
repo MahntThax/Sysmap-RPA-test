@@ -76,6 +76,9 @@
     <Compile Include="PageModels\UdemyCourseListingPageModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="KeywordSearchForm.resx">
+      <DependentUpon>KeywordSearchForm.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Utilities\SeleniumUtilities.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

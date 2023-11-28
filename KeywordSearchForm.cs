@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sysmap_udemy_test
@@ -14,7 +7,13 @@ namespace Sysmap_udemy_test
     {
         public KeywordSearchForm()
         {
-            InitializeComponent();
+            this.InitializeComponent();
+        }
+
+        private void searchKeywordButton_Click(object sender, EventArgs e)
+        {
+            string searchKeyword = keywordTextBox.Text;
+            // implement here the code to call the search with the textbox
         }
     }
 }
