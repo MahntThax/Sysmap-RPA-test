@@ -73,6 +73,7 @@
       <DependentUpon>KeywordSearchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PageModels\UdemyMainPageModel.cs" />
+    <Compile Include="PageModels\UdemyCourseListingPageModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\SeleniumUtilities.cs" />
