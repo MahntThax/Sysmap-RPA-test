@@ -72,8 +72,9 @@
     <Compile Include="KeywordSearchForm.Designer.cs">
       <DependentUpon>KeywordSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PageModels\UdemyMainPageModel.cs" />
-    <Compile Include="PageModels\UdemyCourseListingPageModel.cs" />
+    <Compile Include="PageModels\AluraCoursePageModel.cs" />
+    <Compile Include="PageModels\AluraMainPageModel.cs" />
+    <Compile Include="PageModels\AluraCourseListingPageModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="KeywordSearchForm.resx">
