@@ -12,7 +12,7 @@ namespace Sysmap_udemy_test.PageModels
         private By searchBarElementSelect = By.Id("header-barraBusca-form-campoBusca");
         private IWebElement searchBar;
 
-        private By searchButtonElementSelect = By.CssSelector("header__nav--busca-submit");
+        private By searchButtonElementSelect = By.ClassName("header__nav--busca-submit");
         private IWebElement searchButton;
 
         public AluraMainPageModel(IWebDriver webDriver)

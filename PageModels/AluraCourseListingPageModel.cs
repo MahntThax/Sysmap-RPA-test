@@ -9,10 +9,7 @@ namespace Sysmap_udemy_test.PageModels
 {
     internal class AluraCourseListingPageModel
     {
-        private By pageMainContentSelector = By.Id("busca-resultados");
-        private IWebElement pageMainContent;
-
-        private By pageSearchResultsContainerSelector = By.ClassName("paginacao-pagina");
+        private By pageSearchResultsContainerSelector = By.Id("busca");
         private IWebElement pageCourseDirectory;
 
         private By pageCourseListSelector = By.Id("busca-resultados");
@@ -27,14 +24,11 @@ namespace Sysmap_udemy_test.PageModels
         /// <exception cref="Exception">Throw a exception in case it can't load properly the elements</exception>
         public AluraCourseListingPageModel(IWebDriver webDriver)
         {
-            pageMainContent = SeleniumUtilities.ReturnElement(webDriver, pageMainContentSelector);
-
-            if (pageMainContent == null)
+            pageCourseDirectory = SeleniumUtilities.ReturnElement(webDriver, pageSearchResultsContainerSelector);
+            if (pageCourseDirectory == null)
             {
                 throw new Exception("Udemy courses listing page was not loaded properly");
             }
-
-            pageCourseDirectory = SeleniumUtilities.ReturnElement(pageMainContent, pageSearchResultsContainerSelector);
 
             pageCourseList = pageCourseDirectory.FindElement(pageCourseListSelector);
         }
@@ -56,8 +50,18 @@ namespace Sysmap_udemy_test.PageModels
                 string courseUrl = resultLinkElement.GetAttribute("href");
                 driver.SwitchTo().NewWindow(WindowType.Tab);
                 driver.Navigate().GoToUrl(courseUrl);
-                AluraCoursePageModel aluraCoursePageModel = new AluraCoursePageModel(driver);
-                result.Add(aluraCoursePageModel.ReadCourseDetails());
+                
+                try
+                {
+                    AluraCoursePageModel aluraCoursePageModel = new AluraCoursePageModel(driver);
+                    result.Add(aluraCoursePageModel.ReadCourseDetails());
+                }
+                catch
+                {
+                    // some pages can't read because it needs to be logged in
+                    // the correct way would be to handle different errors, but for now that is enough
+                }
+
                 driver.Close();
                 driver.SwitchTo().Window(originalWindowHandle);
             }

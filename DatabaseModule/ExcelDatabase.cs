@@ -38,6 +38,7 @@ namespace Sysmap_udemy_test.DatabaseModule
                 {
                     // creates a blank Workbookpart
                     WorkbookPart workbookPart = newDatabase.AddWorkbookPart();
+                    workbookPart.Workbook = new Workbook();
 
                     // add a blank WorksheetPart
                     WorksheetPart newWorksheetPart = workbookPart.AddNewPart<WorksheetPart>();
@@ -71,7 +72,7 @@ namespace Sysmap_udemy_test.DatabaseModule
             }
         }
 
-        public static void WriteNewEntry(string databasePath, CourseModel courseModel)
+        private static void WriteNewEntry(string databasePath, CourseModel courseModel)
         {
             // Open the document for editing.
             using (SpreadsheetDocument spreadSheet = SpreadsheetDocument.Open(databasePath, true))
