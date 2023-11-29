@@ -1,10 +1,9 @@
 ﻿using OpenQA.Selenium;
+using Sysmap_udemy_test.DatabaseModule;
 using Sysmap_udemy_test.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sysmap_udemy_test.PageModels
 {
@@ -52,9 +51,9 @@ namespace Sysmap_udemy_test.PageModels
         /// Read all of the courses listed in the page
         /// </summary>
         /// <returns></returns>
-        public List<object> ReadAllCourseInfo()
+        public List<CourseModel> ReadAllCourseInfo()
         {
-            List<object> result = new List<object>();
+            List<CourseModel> result = new List<CourseModel>();
 
             foreach (var courseInfo in pageCourseInfoList)
             {
@@ -72,7 +71,7 @@ namespace Sysmap_udemy_test.PageModels
         /// </summary>
         /// <param name="courseInfo">the course to read the information</param>
         /// <returns>the object containing the course information</returns>
-        private object ReadCourseInfo(IWebElement courseInfo)
+        private CourseModel ReadCourseInfo(IWebElement courseInfo)
         {
             IWebElement courseMainContent = courseInfo.FindElement(By.ClassName("course-card-module--main-content"));
 
@@ -82,13 +81,12 @@ namespace Sysmap_udemy_test.PageModels
             IWebElement courseDetailContent = courseMainContent.FindElement(By.ClassName("course-card-details-module"));
             IWebElement courseTotalHoursContent = courseDetailContent.FindElement(By.CssSelector("#u5-popper-trigger--303 > div:nth-child(2) > div:nth-child(5) > div:nth-child(1) > span:nth-child(1)"));
 
-            return new
-            {
-                courseTitle = titleContent.Text,
-                courseHeadline = courseHeadline.Text,
-                courseInstructor = instructorContent.Text,
-                courseTotalHours = courseTotalHoursContent.Text,
-            };
+            return new CourseModel(
+                titleContent.Text,
+                courseHeadline.Text,
+                instructorContent.Text,
+                courseTotalHoursContent.Text
+            );
         }
     }
 }
